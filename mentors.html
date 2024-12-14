@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentor Grid</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #008080;
+            font-size: 16px;
+            padding: 10px 20px;
+            background-color: #f8f9fa;
+            border: 1px solid #008080;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #008080;
+            color: white;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+
+        .card h3 a {
+            text-decoration: none;
+            color: #333;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        .card h3 a:hover {
+            color: #008080;
+        }
+
+        .card p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .tag {
+            background-color: #e0f7f7;
+            color: #008080;
+            font-size: 12px;
+            padding: 5px 10px;
+            border-radius: 15px;
+        }
+        .btn-mnt{
+            background-color: rgb(255, 255, 255);
+            border-radius: 20px;
+            padding: 1px 15px;
+            
+            margin-bottom: 20px;
+
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>MentorMatch</h1>
+        <nav>
+            <a href="index.html">Home</a>
+        </nav>
+    </header>
+
+    <div class="grid">
+        <div class="card">
+            <img src="https://via.placeholder.com/80" alt="Jennifer Nguyen">
+            <h3><a href="mem1.html"  class="btn-mnt">Jennifer Nguyen</a></h3>
+            <p>Principal Data Scientist at Microsoft</p>
+            <div class="tags">
+                <span class="tag">Data Science</span>
+                <span class="tag">Data Analysis</span>
+                <span class="tag">Machine Learning</span>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/80" alt="Mladen Ruzicic">
+            <h3><a href="mem2.html"  class="btn-mnt">Mladen Ruzicic</a></h3>
+            <p>Senior Frontend Developer at ZF, Ex-Shopify</p>
+            <div class="tags">
+                <span class="tag">Frontend</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">TypeScript</span>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/80" alt="Chris Nicol">
+            <h3><a href="mem3.html"  class="btn-mnt">Chris Nicol</a></h3>
+            <p>VP of Product at Xelix</p>
+            <div class="tags">
+                <span class="tag">Product Management</span>
+                <span class="tag">Leadership Coaching</span>
+                <span class="tag">Product Strategy</span>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/80" alt="Takuya Kitazawa">
+            <h3><a href="mem4.html" class="btn-mnt">Takuya Kitazawa</a></h3>
+            <p>Freelance Software Developer at Self-employed, ex-Amazon</p>
+            <div class="tags">
+                <span class="tag">Machine Learning</span>
+                <span class="tag">Product Management</span>
+                <span class="tag">Data Science</span>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/80" alt="Chris Hammerschmidt">
+            <h3><a href="mem5.html"  class="btn-mnt">Chris </a></h3>
+            <p>ML Research Scientist and Founder at APTA Technologies</p>
+            <div class="tags">
+                <span class="tag">Machine Learning</span>
+                <span class="tag">Data Science</span>
+                <span class="tag">Product Market Fit</span>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/80" alt="Praveen Dubey">
+            <h3><a href="mem6.html"  class="btn-mnt">Praveen Dubey</a></h3>
+            <p>Senior Software Engineer at Microsoft</p>
+            <div class="tags">
+                <span class="tag">JavaScript</span>
+                <span class="tag">TypeScript</span>
+                <span class="tag">React</span>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/80" alt="Liming Liu">
+            <h3><a href="mem7.html"  class="btn-mnt">Liming Liu</a></h3>
+            <p>Data Science Manager at BlockFi</p>
+            <div class="tags">
+                <span class="tag">Data Science</span>
+                <span class="tag">Data Analytics</span>
+                <span class="tag">Product Analytics</span>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/80" alt="Benjamin Kaiser">
+            <h3><a href="mem8.html"  class="btn-mnt">Benjamin Kaiser</a></h3>
+            <p>Principal Software Engineer at Microsoft</p>
+            <div class="tags">
+                <span class="tag">JavaScript</span>
+                <span class="tag">React</span>
+                <span class="tag">NodeJS</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

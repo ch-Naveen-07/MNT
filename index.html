@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MentorMatch connects individuals with industry mentors for career guidance, with personalized mentorship tailored to your career goals.">
+    <meta name="keywords" content="mentorship, career growth, professionals, mentor, match, guidance">
+    <title>MentorMatch</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5ff;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        header a {
+            text-decoration: none;
+            color: #333;
+            margin: 0 1rem;
+            font-size: 1rem;
+        }
+
+        header a:hover {
+            color: #4e4bf3;
+        }
+
+        .search-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .search-box {
+            width: 80%;
+            padding: 0.75rem;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            outline: none;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            color: #4e4bf3;
+        }
+
+        .hero p {
+            margin: 1rem 0;
+            color: #555;
+        }
+
+        .hero button {
+            background-color: #4e4bf3;
+            color: #fff;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+
+        .hero button:hover {
+            background-color: #3b3add;
+        }
+
+        .testimonial {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #fff;
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 500px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .testimonial img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial h3 {
+            margin: 0.5rem 0;
+            font-size: 1.2rem;
+        }
+
+        .testimonial p {
+            font-size: 1rem;
+            color: #555;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial .stars {
+            color: #ffc107;
+            margin-bottom: 0.5rem;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            padding: 2rem 1rem;
+            background-color: #eef2ff;
+        }
+
+        .stats .stat-item {
+            text-align: center;
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .stats .stat-item h3 {
+            font-size: 1.5rem;
+            color: #4e4bf3;
+            margin-bottom: 0.5rem;
+        }
+
+        .stats .stat-item p {
+            color: #555;
+        }
+
+        .featured-mentors {
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        .featured-mentors h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        /* Suggestions Dropdown Styling */
+.suggestions {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    max-width: 80%;
+    margin-top: 0.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: none;
+    position: absolute;
+    z-index: 10;
+    transition: all 0.3s ease-in-out;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.suggestions li {
+    padding: 0.75rem;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+.suggestions li:hover {
+    background-color: #4e4bf3;
+    color: #fff;
+    transform: translateX(5px);
+}
+
+.suggestions li:active {
+    background-color: #3a3af5;
+}
+
+.suggestions li:last-child {
+    border-bottom: none;
+}
+
+/* Loading State */
+.loading {
+    text-align: center;
+    color: #4e4bf3;
+    font-size: 14px;
+    padding: 0.5rem;
+}
+
+/* Adjust the position of the suggestion box */
+.search-container {
+    position: relative;
+}
+
+
+        .mentors {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .mentor-card {
+            text-align: center;
+            margin-top: 20px;
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 200px;
+            transition: transform 0.3s;
+        }
+
+        .mentor-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+        }
+
+        .mentor-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .mentor-card p {
+            color: #555;
+            margin-bottom: 1rem;
+        }
+
+        .mentor-card button {
+            background-color: #4e4bf3;
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .mentor-card button:hover {
+            background-color: #3b3add;
+        }
+
+        .mentor-card:hover {
+            transform: scale(1.05);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .mentors {
+                flex-direction: column;
+                align-items: center;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero button {
+                font-size: 0.9rem;
+            }
+        }
+        .mentor-button-1{
+            background-color: blue;
+            color: white;
+            border-radius: 20px;
+            padding:  9px 15px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>MentorMatch</h1>
+        <nav>
+            <a href="technologies.html">Technology</a>
+            <a href="mentors.html">Mentors</a>
+            <a href="login.html">Login</a>
+        </nav>
+    </header>
+
+    <!-- Search Box Section -->
+    <div class="search-container">
+        <input type="text" id="mentor-search" class="search-box" placeholder="Search for mentors..." onkeyup="showSuggestions()">
+    </div>
+
+    <!-- Suggestions List -->
+    <ul id="suggestions" class="suggestions"></ul>
+
+    <div id="mentors-list">
+        <!-- Mentors will be displayed here after search -->
+    </div>
+
+    <script>
+        let mentors = [
+            { name: "Dr. Emily Watson", expertise: "Machine Learning, AI" },
+            { name: "James Rodriguez", expertise: "Product Strategy, UX Design" },
+            { name: "Lisa Chen", expertise: "UI/UX, Brand Strategy" },
+            { name: "John Doe", expertise: "Full Stack Development" },
+            { name: "Jane Smith", expertise: "Data Science, Python" },
+        ];
+
+        // Display suggestions as the user types
+        function showSuggestions() {
+            const query = document.getElementById('mentor-search').value.toLowerCase();
+            const suggestionsList = document.getElementById('suggestions');
+            suggestionsList.innerHTML = '';
+
+            if (query.length > 0) {
+                const filteredMentors = mentors.filter(mentor => mentor.name.toLowerCase().includes(query));
+                filteredMentors.forEach(mentor => {
+                    const li = document.createElement('li');
+                    li.textContent = mentor.name;
+                    li.onclick = () => displayMentor(mentor);
+                    suggestionsList.appendChild(li);
+                });
+                suggestionsList.style.display = 'block';
+            } else {
+                suggestionsList.style.display = 'none';
+            }
+        }
+
+        // Display mentor details when a suggestion is clicked
+        function displayMentor(mentor) {
+            const mentorsList = document.getElementById('mentors-list');
+            mentorsList.innerHTML = `
+                <div class="mentor-card">
+                    <img src= >
+                    <h3>${mentor.name}</h3>
+                    <p>${mentor.expertise}</p>
+                    <button>View Profile</button>
+                </div>
+            `;
+            document.getElementById('mentor-search').value = mentor.name;
+            document.getElementById('suggestions').style.display = 'none';
+        }
+    </script>
+
+    <section class="hero">
+        <h1>Find Your Perfect <br> <span style="color: #4e4bf3;">Mentor Match</span></h1>
+        <p>Connect with industry experts who can guide you through your professional journey. Get personalized mentorship tailored to your career goals.</p>
+       <a href="mentors.html" class="mentor-button-1">Find Mentors</a>
+    </section>
+
+    <section class="testimonial">
+        <img src="https://via.placeholder.com/80" alt="Mentee Picture">
+        <div class="stars">
+            &#9733;&#9733;&#9733;&#9733;&#9733;
+        </div>
+        <p>"The mentorship I received was invaluable. My mentor helped me navigate complex career decisions and improve my technical skills."</p>
+        <h3>Sarah Johnson</h3>
+        <p>Software Engineer</p>
+    </section>
+
+    <section class="stats">
+        <div class="stat-item">
+            <h3>500+</h3>
+            <p>Active Mentors</p>
+        </div>
+        <div class="stat-item">
+            <h3>2,000+</h3>
+            <p>Successful Matches</p>
+        </div>
+        <div class="stat-item">
+            <h3>1,500+</h3>
+            <p>Monthly Sessions</p>
+        </div>
+        <div class="stat-item">
+            <h3>50+</h3>
+            <p>Industries Covered</p>
+        </div>
+    </section>
+
+    <section class="featured-mentors">
+        <h2>Featured Mentors</h2>
+        <p>Learn from industry leaders who are passionate about sharing their knowledge</p>
+        <div class="mentors">
+            <div class="mentor-card">
+                <img src="https://via.placeholder.com/80" alt="Mentor Picture">
+                <h3>Chris Nicol</h3>
+                <p>Tech Lead at Google</p>
+                <p><span style="color: #4e4bf3;">Machine Learning</span> <span style="color: #4e4bf3;">Software Architecture</span></p>
+                <a href="mem3.html"> <button>View Profile</button></a>
+            </div>
+            <div class="mentor-card">
+                <img src="https://via.placeholder.com/80" alt="Mentor Picture">
+                <h3>Mladen Ruzicic</h3>
+                <p>Senior Product Manager</p>
+                <p><span style="color: #4e4bf3;">Product Strategy</span> <span style="color: #4e4bf3;">UX Design</span></p>
+                <a href="mem2.html"><button>View Profile</button></a>
+            </div>
+            <div class="mentor-card">
+                <img src="https://via.placeholder.com/80" alt="Mentor Picture">
+                <h3>Jennier Nguyen</h3>
+                <p>Design Director <br> UI Designer</p>
+               
+                <p><span style="color: #4e4bf3;">UI/UX</span> <span style="color: #4e4bf3;">Brand Strategy</span></p>
+                <a href="mem1.html"><button>View Profile</button></a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

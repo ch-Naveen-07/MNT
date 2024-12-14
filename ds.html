@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentor Grid</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        header nav {
+            display: flex;
+            align-items: center;
+        }
+
+        header nav a {
+            text-decoration: none;
+            color: #008080;
+            font-size: 16px;
+            margin-left: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        header nav a:hover {
+            background-color: #e0f7f7;
+        }
+
+        .login {
+            text-align: right;
+            margin-left: auto;
+        }
+
+        .login a {
+            text-decoration: none;
+            color: #008080;
+            font-size: 16px;
+            padding: 10px 15px;
+            border: 1px solid #008080;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+
+        .login a:hover {
+            background-color: #008080;
+            color: white;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .card p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .tag {
+            background-color: #e0f7f7;
+            color: #008080;
+            font-size: 12px;
+            padding: 5px 10px;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>MentorMatch</h1>
+        <nav>
+            <a href="index.html">Home</a>
+        </nav>
+    </header>
+
+    <!-- Suggestions List -->
+    <ul id="suggestions" class="suggestions"></ul>
+
+    <div id="mentors-list">
+        <!-- Mentors will be displayed here after search -->
+    </div>
+
+    <script>
+        let mentors = [
+            { name: "Dr. Emily Watson", expertise: "Machine Learning, AI" },
+            { name: "James Rodriguez", expertise: "Product Strategy, UX Design" },
+            { name: "Lisa Chen", expertise: "UI/UX, Brand Strategy" },
+            { name: "John Doe", expertise: "Full Stack Development" },
+            { name: "Jane Smith", expertise: "Data Science, Python" },
+        ];
+
+        // Display suggestions as the user types
+        function showSuggestions() {
+            const query = document.getElementById('mentor-search').value.toLowerCase();
+            const suggestionsList = document.getElementById('suggestions');
+            suggestionsList.innerHTML = '';
+
+            if (query.length > 0) {
+                const filteredMentors = mentors.filter(mentor => mentor.name.toLowerCase().includes(query));
+                filteredMentors.forEach(mentor => {
+                    const li = document.createElement('li');
+                    li.textContent = mentor.name;
+                    li.onclick = () => displayMentor(mentor);
+                    suggestionsList.appendChild(li);
+                });
+                suggestionsList.style.display = 'block';
+            } else {
+                suggestionsList.style.display = 'none';
+            }
+        }
+
+        // Display mentor details when a suggestion is clicked
+        function displayMentor(mentor) {
+            const mentorsList = document.getElementById('mentors-list');
+            mentorsList.innerHTML = `
+                <div class="mentor-card">
+                    <img src="https://via.placeholder.com/80" alt="Mentor Picture">
+                    <h3>${mentor.name}</h3>
+                    <p>${mentor.expertise}</p>
+                    <button>View Profile</button>
+                </div>
+            `;
+            document.getElementById('mentor-search').value = mentor.name;
+            document.getElementById('suggestions').style.display = 'none';
+        }
+    </script>
+
+    <div class="grid">
+        <div class="card">
+            <img src="https://via.placeholder.com/80" alt="Jennifer Nguyen">
+            <a href="mem1.html"><h3>Jennifer Nguyen</h3></a>
+            <p>Principal Data Scientist at Microsoft</p>
+            <div class="tags">
+                <span class="tag">Data Science</span>
+                <span class="tag">Data Analysis</span>
+                <span class="tag">Machine Learning</span>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/80" alt="Mladen Ruzicic">
+            <a href="mem2.html"><h3>Mladen Ruzicic</h3></a>
+            <p>Senior Frontend Developer at ZF, Ex-Shopify</p>
+            <div class="tags">
+                <span class="tag">Frontend</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">TypeScript</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://via.placeholder.com/80" alt="Benjamin Kaiser">
+            <a href="mem2.html"><h3>Benjamin Kaiser</h3></a>
+            <p>Principal Software Engineer at Microsoft</p>
+            <div class="tags">
+                <span class="tag">JavaScript</span>
+                <span class="tag">React</span>
+                <span class="tag">NodeJS</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

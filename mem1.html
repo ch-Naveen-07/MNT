@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header Layout</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            border-bottom: 1px solid #ccc;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        .logo-name {
+            font-size: 20px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        .top-link a {
+            text-decoration: none;
+            color: #007BFF;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .top-link a:hover {
+            border: 1px solid black;
+            padding: 6px 10px;
+            border-radius: 10px ;
+            background-color: #f1eeee;
+        }
+        .button-container {
+            display: grid;
+            grid-template-columns: repeat(3, auto);
+            gap: 10px;
+            justify-content: left;
+            margin-left: 5%;
+            margin-top: 20px;
+        }
+        .button-container button {
+            padding: 4px 15px;
+            font-size: 10px;
+            cursor: pointer;
+            border-radius: 20px;
+            border: 1px solid #ccc;
+            background-color: #fffbfb;
+        }
+        .button-container button:hover {
+            background-color: #e0e0e0;
+        }
+        .content-container {
+            display: flex;
+            margin: 20px;
+        }
+        .card {
+            width: 30%;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            background-color: #f9f9f9;
+        }
+        .info {
+            flex-grow: 1;
+            margin-left: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .container {
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .container p {
+            margin-bottom: 20px;
+        }
+        .container button {
+            display: block;
+            width: 100%;
+            padding: 9px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+        }
+        .container button:hover {
+            background-color: #0056b3;
+        }
+        .para-home-page{
+            margin-left: 5%;
+        }
+        .head-home-page{
+            margin-left: 5%;
+            color: rgb(0, 0, 140);
+        }        
+        .button-home-page{
+            margin-left: 5%;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .content-container{
+            margin-left: 5%;
+        }
+        .home-container{
+
+            margin-left: 5%;
+        }
+        .b1-home{
+            background-color: rgb(1, 97, 1);
+            color: white;
+            padding: 9px 10px;
+            border-radius: 10px;
+            text-decoration: none;
+        }
+        .b1-h1{
+            background-color: #ccc;
+            border-radius: 40px;
+            padding: 2px 10px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="top-link">
+        <a href="index.html">Home</a>
+    </div>
+    <div class="logo">
+        <span class="logo-name"><b>MentorNavigate</b>Thrive</span>
+    </div>
+</header>
+
+<div>
+    <p class="para-home-page">Learn new skills , land in your dream career</p>
+    <h1 class="head-home-page">Jennifer <br> Nguyen</h1>
+</div>
+<div class="button-home-page">
+    <a class="b1-home" href="congrts.html">Book Mentor</a>
+    <img src="mentor.jpg" alt="" style="height: 40px; border-radius: 50%;">
+</div>
+<div>
+    <div class="button-container">
+        <p><b>Skills</b></p><br><br><button style="border: none; background-color: white;"></button>
+        <button>Product Designing</button>
+        <button>Software Engineering</button>
+        <button>Leadership Mentoring</button>
+    </div>
+</div>
+
+<div class="content-container">
+    <div class="card">
+        <h3></h3>
+        <p>This is some content inside the card.</p>
+    </div>
+    <div class="info">
+        <h3>Information Section</h3>
+        <p>This is where additional information will go. You can add more content here as needed.</p>
+    </div>
+</div>
+
+<div class="home-container">
+    <p>This is a paragraph inside the container. You can add more details here as required.</p>
+   
+</div>
+
+</body>
+</html>
